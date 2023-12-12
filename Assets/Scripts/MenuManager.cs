@@ -10,6 +10,10 @@ public class MenuManager : MonoBehaviour
     public Text soundBtnText;
     int coins = 0;
 
+    public GameObject UpgradeStorePanel;
+    public GameObject MainMenuPanel;
+    
+
     private void Start()
     {
         if (PlayerPrefs.HasKey("Coins"))
@@ -39,5 +43,16 @@ public class MenuManager : MonoBehaviour
     {
         SoundManager.instance.ToggleMuted();
         UpdateUI();
+    }
+
+    public void OpenUpgradeStore()
+    {
+        MainMenuPanel.SetActive(false);
+        UpgradeStorePanel.SetActive(true);
+    }
+    public void CloseUpgradeStore()
+    {
+        MainMenuPanel.SetActive(true);
+        UpgradeStorePanel.SetActive(false);
     }
 }
