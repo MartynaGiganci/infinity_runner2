@@ -36,11 +36,13 @@ public class PlayerController : MonoBehaviour
 
             if (!jumped)
             {
+                SoundManager.instance.PlayOnceJumped();
                 rb.velocity = (new Vector2(0f, jumpForce));
                 jumped = true;
             }
             else if (!doubleJumped)
             {
+                SoundManager.instance.PlayOnceJumped();
                 rb.velocity = (new Vector2(0f, jumpForce));
                 doubleJumped = true;
             }

@@ -234,7 +234,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -328,7 +328,8 @@ Transform:
   m_LocalPosition: {x: 302.6791, y: 166.18556, z: -0.5352485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 588535542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &77289451
@@ -343,6 +344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f982f69fe8974dba87e0cd6a95edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectSource: {fileID: 588535541}
+  click: {fileID: 8300000, guid: ae1c6309f77ec6044a5ccf56d7c84ab2, type: 3}
+  jump: {fileID: 8300000, guid: d88badeaa753c5544b99b6bae2ace779, type: 3}
+  coinGrab: {fileID: 0}
 --- !u!1 &79715114
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &79715115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -514,6 +519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f982f69fe8974dba87e0cd6a95edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectSource: {fileID: 0}
+  click: {fileID: 0}
+  jump: {fileID: 0}
+  coinGrab: {fileID: 0}
 --- !u!82 &162062812
 AudioSource:
   m_ObjectHideFlags: 0
@@ -770,7 +779,7 @@ GameObject:
   - component: {fileID: 552479480}
   - component: {fileID: 552479479}
   m_Layer: 5
-  m_Name: UpgradeStoreButti
+  m_Name: UpgradeStoreButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -818,10 +827,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.7913849, g: 0.9811321, b: 0.86621475, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.52156866, g: 0.86666673, b: 0.654902, a: 1}
+    m_PressedColor: {r: 0.52156866, g: 0.86666673, b: 0.654902, a: 1}
+    m_SelectedColor: {r: 0.52156866, g: 0.86666673, b: 0.654902, a: 1}
+    m_DisabledColor: {r: 0.79215693, g: 0.9803922, b: 0.86666673, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -865,7 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7208526, g: 0.9150943, b: 0.796391, a: 1}
+  m_Color: {r: 0.79215693, g: 0.9803922, b: 0.86666673, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -890,6 +899,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552479477}
   m_CullTransparentMesh: 1
+--- !u!1 &588535540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588535542}
+  - component: {fileID: 588535541}
+  m_Layer: 0
+  m_Name: EffectSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &588535541
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588535540}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &588535542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588535540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 77289450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721341215
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,9 +1059,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1251300421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 121.5781, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721341217
@@ -1015,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28773582, g: 1, b: 0.48235294, a: 1}
+  m_Color: {r: 0.28627455, g: 1, b: 0.5879312, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1106,10 +1243,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.73001957, g: 0.8018868, b: 0.73241514, a: 1}
-    m_HighlightedColor: {r: 0.40032038, g: 0.49056602, b: 0.40633675, a: 1}
-    m_PressedColor: {r: 0.4662691, g: 0.5849056, b: 0.4662691, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.59741014, g: 0.7075472, b: 0.60352886, a: 1}
+    m_PressedColor: {r: 0.59607846, g: 0.7058824, b: 0.6039216, a: 1}
+    m_SelectedColor: {r: 0.59607846, g: 0.7058824, b: 0.6039216, a: 1}
+    m_DisabledColor: {r: 0.7294118, g: 0.8000001, b: 0.73333335, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1340,11 +1477,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.8503916, g: 0.9245283, b: 0.8800463, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.77874684, g: 0.9433962, b: 0.84360874, a: 1}
+    m_HighlightedColor: {r: 0.52156866, g: 0.8705883, b: 0.654902, a: 1}
+    m_PressedColor: {r: 0.52156866, g: 0.8705883, b: 0.654902, a: 1}
+    m_SelectedColor: {r: 0.52156866, g: 0.8705883, b: 0.654902, a: 1}
+    m_DisabledColor: {r: 0.7803922, g: 0.9450981, b: 0.8431373, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1388,7 +1525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6035511, g: 0.9339623, b: 0.73204434, a: 1}
+  m_Color: {r: 0.7803044, g: 0.990566, b: 0.86521775, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1425,6 +1562,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f982f69fe8974dba87e0cd6a95edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectSource: {fileID: 0}
+  click: {fileID: 8300000, guid: ae1c6309f77ec6044a5ccf56d7c84ab2, type: 3}
+  jump: {fileID: 0}
+  coinGrab: {fileID: 0}
 --- !u!82 &1168563022
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1637,7 +1778,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.30909577, g: 0.4339623, b: 0.34424195, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1828,10 +1969,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1251300421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 35.78905, y: -37.89435}
+  m_SizeDelta: {x: 71.5781, y: 75.7887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1508738924
 MonoBehaviour:
@@ -1896,16 +2037,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560064717}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1581470565}
   - {fileID: 796086513}
   - {fileID: 1637589838}
-  - {fileID: 1581470565}
-  - {fileID: 552479478}
   - {fileID: 1168563017}
+  - {fileID: 552479478}
   m_Father: {fileID: 1465043142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1985,8 +2126,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 48}
-  m_SizeDelta: {x: 133.7518, y: 52}
+  m_AnchoredPosition: {x: 2.8171, y: 48}
+  m_SizeDelta: {x: 138.12, y: 52}
   m_Pivot: {x: 0.5, y: 0.50000006}
 --- !u!114 &1581470566
 MonoBehaviour:
@@ -2092,10 +2233,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.67630833, g: 0.9622642, b: 0.7875134, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.5254902, g: 0.8705883, b: 0.654902, a: 1}
+    m_PressedColor: {r: 0.5254902, g: 0.8705883, b: 0.654902, a: 1}
+    m_SelectedColor: {r: 0.5254902, g: 0.8705883, b: 0.654902, a: 1}
+    m_DisabledColor: {r: 0.6745098, g: 0.9607844, b: 0.78823537, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2114,10 +2255,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: dea20afdf0bdeb74d81bda4ba145808d, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 1768005017}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: PlayButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2178,8 +2319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsValue: {fileID: 796086514}
   soundBtnText: {fileID: 162062809}
-  UpgradeStorePanel: {fileID: 0}
-  MainMenuPanel: {fileID: 0}
+  UpgradeStorePanel: {fileID: 79715114}
+  MainMenuPanel: {fileID: 1560064717}
 --- !u!1 &1768005015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2381,7 @@ GameObject:
   - component: {fileID: 1778011250}
   - component: {fileID: 1778011249}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: UpgradeStoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
